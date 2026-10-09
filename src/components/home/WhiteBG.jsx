@@ -11,6 +11,10 @@ const WhiteBG = () => {
                     <img src="/images/WhiteBG.svg" alt="BGIMG" className=" absolute bottom-0 left-0 w-full " />
                 </div>
 
+                <div className=" w-full h-[50vh] bg-white sm:hidden absolute top-1/2 left-0 -translate-y-1/2 border-x border-black">
+
+                </div>
+
                 <Border />
 
             </div>

@@ -27,9 +27,9 @@ const Hero = () => {
   }, { scope: container })
 
   return (
-    <div ref={container} className='w-full h-svh relative bg-white p-5'>
+    <div ref={container} className='w-full h-svh relative bg-white p-2 sm:p-5'>
 
-      <div className="anim-bg w-full h-full bg-[#99BBCF] p-5 relative overflow-hidden">
+      <div className="anim-bg w-full h-full bg-[#99BBCF] p-2 sm:p-5  relative overflow-hidden">
         <CornerWhiteCut />
         <WhiteBG />
         <ContentCont />

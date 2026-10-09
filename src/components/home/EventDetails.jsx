@@ -4,7 +4,7 @@ const EventDetails = () => {
     return (
         <>
 
-            <div className="flex flex-col  lg:flex-row items-center justify-center gap-4 lg:gap-4 text-[#567a99] font-serif text-lg tracking-wide ">
+            <div className="flex flex-col  lg:flex-row items-center justify-center max-sm:mt-5 gap-1 lg:gap-4 text-[#567a99] font-serif text-lg tracking-wide ">
 
                 {/* Date */}
                 <div className="flex items-center gap-3 FONT_PN font-bold">

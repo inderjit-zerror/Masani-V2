@@ -11,7 +11,7 @@ const BTN = ({ label = "RSVP", onClick }) => {
             ref={buttonRef}
             onClick={onClick}
             /* Adjusted padding and min-width to make the button slightly smaller */
-            className="relative inline-flex items-center justify-center px-10 py-2 transition-all duration-150 ease-in hover:scale-[1.05] min-w-[100px] w-max h-auto group cursor-pointer select-none focus:outline-none mt-4"
+            className="relative inline-flex items-center justify-center px-10 py-2 max-sm:mt-5 transition-all duration-150 ease-in hover:scale-[1.05] min-w-[100px] w-max h-auto group cursor-pointer select-none focus:outline-none mt-4"
         >
             {/* Precision SVG Frame (Notched/Concave Corners) */}
             <svg

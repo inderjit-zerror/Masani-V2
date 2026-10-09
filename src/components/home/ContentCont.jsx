@@ -74,38 +74,37 @@ const ContentCont = () => {
 
     return (
         <div
-            className={`content-wrapper w-[75%] h-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 ${showForm ? "justify-start" : "justify-center"
+            className={`content-wrapper max-sm:w-[80%] w-[90%] md:w-[75%] h-[90%]  md:h-[75%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 ${showForm ? "justify-start" : "justify-center"
                 }`}
         >
             {!showForm ? (
                 <>
-                    <div className="  w-fit flex flex-col justify-center items-center gap-5" >
+                    <div className="w-full flex flex-col justify-center items-center gap-2" >
 
                         {/* LOGO-INFO */}
-                        <div className="w-[50px] h-fit relative overflow-hidden">
+                        <div className="w-[40px] md:w-[50px] h-fit relative overflow-hidden">
                             <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
                         </div>
 
                         {/* TEXT-INFO */}
-                        <div className="flex items-center gap-3 text-[#567a99] max-w-[60%] my-4 mb-6 text-lg  FONT_PN font-semibold capitalize text-center tracking-tight leading-6">
+                        <div className="flex items-center justify-center gap-3 max-sm:mt-8 text-[#567a99] w-[90%] text-[1.3rem] tracking-0 md:max-w-[60%] my-2 md:my-4 mb-2  md:text-lg FONT_PN font-semibold capitalize text-center sm:tracking-tight leading-5 md:leading-6">
                             <span>
-                                WOULD BE DELIGHTED IF YOU WOULD JOIN THEM
-                                FOR THE NAVJOTE CEREMONY OF THEIR SON
+                                NAVJYOT CEREMONY OF
                             </span>
                         </div>
                     </div>
 
                     {/* Title */}
-                    <div className="w-1/2 h-fit flex relative">
+                    <div className="w-[99%] sm:w-[70%] md:w-1/2 h-fit flex relative">
                         <img src="/images/MainText.png" alt="IMG" className="w-full object-cover object-center" />
                     </div>
 
-                    <div className="  w-fit flex flex-col justify-center items-center my-4 gap-1">
+                    <div className="w-full flex flex-col justify-center items-center my-2 gap-3 md:gap-2">
 
                         <EventDetails />
                         <Timer />
+                        <BTN label="RSVP" onClick={() => setShowForm(true)} />
                     </div>
-                    <BTN label="RSVP" onClick={() => setShowForm(true)} />
                 </>
             ) : (
                 /* ===== SCROLLABLE RSVP FORM ===== */
@@ -124,15 +123,15 @@ const ContentCont = () => {
                 >
                     <div className="w-full flex flex-col items-center gap-6">
                         {/* LOGO-INFO */}
-                        <div className="w-[50px] h-fit relative overflow-hidden mb-2 shrink-0">
+                        <div className="w-[40px] md:w-[50px] h-fit relative overflow-hidden mb-2 shrink-0">
                             <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
                         </div>
 
-                        <h2 className="text-[#567a99] text-2xl font-serif shrink-0">RSVP</h2>
+                        <h2 className="text-[#567a99] text-xl md:text-2xl font-serif shrink-0">RSVP</h2>
 
                         {/* MEMBER COUNT */}
                         <div className="flex flex-col items-center gap-3 w-full max-w-md shrink-0">
-                            <label className="text-[#567a99] f text-lg FONT_PN font-semibold">
+                            <label className="text-[#567a99] text-base md:text-lg FONT_PN font-semibold text-center">
                                 Number of Attending Members:
                             </label>
                             <div className="flex items-center gap-4">
@@ -154,6 +153,17 @@ const ContentCont = () => {
                                     +
                                 </button>
                             </div>
+
+                            {/* SCROLL INDICATOR */}
+                            {memberCount > 1 && (
+                                <div className="flex flex-col items-center gap-1 mt-2 opacity-80">
+                                    <span className="text-[#567a99] text-[0.7rem] FONT_PN font-bold uppercase tracking-widest">Scroll for more details</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#C59B4E] animate-bounce">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <polyline points="19 12 12 19 5 12"></polyline>
+                                    </svg>
+                                </div>
+                            )}
                         </div>
 
                         {/* MEMBER CARDS */}
@@ -163,7 +173,7 @@ const ContentCont = () => {
                                     key={index}
                                     className="w-full border border-[#C59B4E]/30 p-4 flex flex-col gap-4"
                                 >
-                                    <h3 className="text-[#C59B4E] FONT_PN font-semibold text-lg text-center border-b border-[#C59B4E]/20 pb-2">
+                                    <h3 className="text-[#C59B4E] FONT_PN font-semibold text-base md:text-lg text-center border-b border-[#C59B4E]/20 pb-2">
                                         Person {index + 1}
                                     </h3>
 
@@ -214,7 +224,7 @@ const ContentCont = () => {
                                         </div>
 
                                         {/* Meal */}
-                                        <div className="flex flex-col gap-3">
+                                        <div className={`flex flex-col gap-3 transition-opacity duration-300 ${member.attendance !== "DELIGHTED TO ACCEPT" ? "opacity-40 pointer-events-none" : ""}`}>
                                             <label className="flex items-center gap-2 cursor-pointer group">
                                                 <input
                                                     type="radio"
@@ -223,7 +233,8 @@ const ContentCont = () => {
                                                     onChange={() =>
                                                         handleMemberDataChange(index, "meal", "VEGETARIAN")
                                                     }
-                                                    className="accent-[#C59B4E] w-4 h-4 cursor-pointer"
+                                                    disabled={member.attendance !== "DELIGHTED TO ACCEPT"}
+                                                    className="accent-[#C59B4E] w-4 h-4 cursor-pointer disabled:cursor-not-allowed"
                                                 />
                                                 <span className="text-[#567a99] FONT_PN font-semibold text-sm group-hover:text-[#C59B4E] transition-colors">
                                                     VEGETARIAN
@@ -237,7 +248,8 @@ const ContentCont = () => {
                                                     onChange={() =>
                                                         handleMemberDataChange(index, "meal", "NON-VEGETARIAN")
                                                     }
-                                                    className="accent-[#C59B4E] w-4 h-4 cursor-pointer"
+                                                    disabled={member.attendance !== "DELIGHTED TO ACCEPT"}
+                                                    className="accent-[#C59B4E] w-4 h-4 cursor-pointer disabled:cursor-not-allowed"
                                                 />
                                                 <span className="text-[#567a99] FONT_PN font-semibold text-sm group-hover:text-[#C59B4E] transition-colors">
                                                     NON-VEGETARIAN
