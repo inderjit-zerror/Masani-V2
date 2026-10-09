@@ -79,7 +79,7 @@ const ContentCont = () => {
         >
             {!showForm ? (
                 <>
-                    <div className="  w-fit flex flex-col justify-center items-center gap-2" >
+                    <div className="  w-fit flex flex-col justify-center items-center gap-10" >
 
                         {/* LOGO-INFO */}
                         <div className="w-[50px] h-fit relative overflow-hidden">
@@ -87,7 +87,7 @@ const ContentCont = () => {
                         </div>
 
                         {/* TEXT-INFO */}
-                        <div className="flex items-center gap-3 text-[#567a99] max-w-[60%] my-4 text-lg  FONT_PN font-semibold capitalize text-center tracking-tight leading-6">
+                        <div className="flex items-center gap-3 text-[#567a99] max-w-[60%] my-4 mb-6 text-lg  FONT_PN font-semibold capitalize text-center tracking-tight leading-6">
                             <span>
                                 WOULD BE DELIGHTED IF YOU WOULD JOIN THEM
                                 FOR THE NAVJOTE CEREMONY OF THEIR SON
@@ -104,8 +104,8 @@ const ContentCont = () => {
 
                         <EventDetails />
                         <Timer />
-                        <BTN label="RSVP" onClick={() => setShowForm(true)} />
                     </div>
+                    <BTN label="RSVP" onClick={() => setShowForm(true)} />
                 </>
             ) : (
                 /* ===== SCROLLABLE RSVP FORM ===== */
