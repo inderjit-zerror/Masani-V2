@@ -79,17 +79,20 @@ const ContentCont = () => {
         >
             {!showForm ? (
                 <>
-                    {/* LOGO-INFO */}
-                    <div className="w-[50px] h-fit relative overflow-hidden">
-                        <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
-                    </div>
+                    <div className="  w-fit flex flex-col justify-center items-center gap-2" >
 
-                    {/* TEXT-INFO */}
-                    <div className="flex items-center gap-3 text-[#567a99] max-w-1/2 text-lg  FONT_PN font-semibold capitalize text-center tracking-tight leading-6">
-                        <span>
-                            WOULD BE DELIGHTED IF YOU WOULD JOIN THEM
-                            FOR THE NAVJOTE CEREMONY OF THEIR SON
-                        </span>
+                        {/* LOGO-INFO */}
+                        <div className="w-[50px] h-fit relative overflow-hidden">
+                            <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
+                        </div>
+
+                        {/* TEXT-INFO */}
+                        <div className="flex items-center gap-3 text-[#567a99] max-w-[60%] my-4 text-lg  FONT_PN font-semibold capitalize text-center tracking-tight leading-6">
+                            <span>
+                                WOULD BE DELIGHTED IF YOU WOULD JOIN THEM
+                                FOR THE NAVJOTE CEREMONY OF THEIR SON
+                            </span>
+                        </div>
                     </div>
 
                     {/* Title */}
@@ -97,9 +100,12 @@ const ContentCont = () => {
                         <img src="/images/MainText.png" alt="IMG" className="w-full object-cover object-center" />
                     </div>
 
-                    <EventDetails />
-                    <Timer />
-                    <BTN label="RSVP" onClick={() => setShowForm(true)} />
+                    <div className="  w-fit flex flex-col justify-center items-center my-4 gap-1">
+
+                        <EventDetails />
+                        <Timer />
+                        <BTN label="RSVP" onClick={() => setShowForm(true)} />
+                    </div>
                 </>
             ) : (
                 /* ===== SCROLLABLE RSVP FORM ===== */
