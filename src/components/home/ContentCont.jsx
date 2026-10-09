@@ -79,7 +79,7 @@ const ContentCont = () => {
         >
             {!showForm ? (
                 <>
-                    <div className="  w-fit flex flex-col justify-center items-center gap-10" >
+                    <div className="  w-fit flex flex-col justify-center items-center gap-5" >
 
                         {/* LOGO-INFO */}
                         <div className="w-[50px] h-fit relative overflow-hidden">
