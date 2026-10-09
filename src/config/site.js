@@ -1,15 +1,18 @@
 export const siteConfig = {
-  name: "Website Name",
-  description: "Website description",
+  name: "Navjote Ceremony",
+  description: "Join us for the auspicious occasion of the NAVJOTE Ceremony. RSVP and find event details here.",
   url: "https://localhost:3000",
   locale: "en_IN",
   language: "en-IN",
   ogImage: "/og.png",
   keywords: [
-    "",
-    "",
-    "",
-    "",
+    "NAVJOTE",
+    "Navjote",
+    "Ceremony",
+    "Parsi",
+    "Zoroastrian",
+    "RSVP",
+    "Event"
   ],
   contact: {
     phone: "",
@@ -34,22 +37,22 @@ export const siteRoutes = [
   {
     path: "/",
     label: "Home",
-    title: "Home",
-    description: siteConfig.description,
+    title: "Navjote Ceremony - Home",
+    description: "Welcome to the NAVJOTE Ceremony event page. RSVP here.",
     priority: 1,
   },
   {
     path: "/about",
     label: "About",
-    title: "About",
-    description: "",
+    title: "About the Ceremony",
+    description: "Learn more about the NAVJOTE Ceremony and its significance.",
     priority: 0.8,
   },
   {
     path: "/contact",
     label: "Contact",
-    title: "Contact",
-    description: "",
+    title: "Contact Us",
+    description: "Get in touch for any queries regarding the NAVJOTE Ceremony.",
     priority: 0.7,
   },
 ];

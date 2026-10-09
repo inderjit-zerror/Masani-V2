@@ -14,6 +14,7 @@ const ContentCont = () => {
     const [showForm, setShowForm] = useState(false);
     const [memberCount, setMemberCount] = useState(1);
     const [membersData, setMembersData] = useState([{ ...DEFAULT_MEMBER }]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const scrollRef = useRef(null);
 
@@ -66,10 +67,33 @@ const ContentCont = () => {
         );
     };
 
-    const handleSubmit = () => {
-        console.log("Form Data:", membersData);
-        alert("Thank you for your RSVP!");
-        setShowForm(false);
+    const handleSubmit = async () => {
+        if (isSubmitting) return;
+        setIsSubmitting(true);
+        try {
+            const res = await fetch("/api/rsvp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ membersData }),
+            });
+
+            if (res.ok) {
+                alert("Thank you for your RSVP!");
+                setShowForm(false);
+                setMemberCount(1);
+                setMembersData([{ ...DEFAULT_MEMBER }]);
+            } else {
+                const data = await res.json();
+                alert(`Something went wrong: ${data.error || "Please try again."}`);
+            }
+        } catch (error) {
+            console.error("Submission Error:", error);
+            alert("Error submitting the form.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -83,20 +107,20 @@ const ContentCont = () => {
 
                         {/* LOGO-INFO */}
                         <div className="w-[40px] md:w-[50px] h-fit relative overflow-hidden">
-                            <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
+                            <img src="/images/FIRE.svg" alt="Holy Fire Symbol" className="w-full object-cover object-center" />
                         </div>
 
                         {/* TEXT-INFO */}
                         <div className="flex items-center justify-center gap-3 max-sm:mt-8 text-[#567a99] w-[90%] text-[1.3rem] tracking-0 md:max-w-[60%] my-2 md:my-4 mb-2  md:text-lg FONT_PN font-semibold capitalize text-center sm:tracking-tight leading-5 md:leading-6">
-                            <span>
-                                NAVJYOT CEREMONY OF
-                            </span>
+                            <h1 className="text-inherit font-inherit m-0 p-0">
+                                NAVJOTE CEREMONY OF
+                            </h1>
                         </div>
                     </div>
 
                     {/* Title */}
                     <div className="w-[99%] sm:w-[70%] md:w-1/2 h-fit flex relative">
-                        <img src="/images/MainText.png" alt="IMG" className="w-full object-cover object-center" />
+                        <img src="/images/MainText.png" alt="NAVJOTE Ceremony Title" className="w-full object-cover object-center" />
                     </div>
 
                     <div className="w-full flex flex-col justify-center items-center my-2 gap-3 md:gap-2">
@@ -124,7 +148,7 @@ const ContentCont = () => {
                     <div className="w-full flex flex-col items-center gap-6">
                         {/* LOGO-INFO */}
                         <div className="w-[40px] md:w-[50px] h-fit relative overflow-hidden mb-2 shrink-0">
-                            <img src="/images/FIRE.svg" alt="FIRE" className="w-full object-cover object-center" />
+                            <img src="/images/FIRE.svg" alt="Holy Fire Symbol" className="w-full object-cover object-center" />
                         </div>
 
                         <h2 className="text-[#567a99] text-xl md:text-2xl font-serif shrink-0">RSVP</h2>
@@ -263,11 +287,12 @@ const ContentCont = () => {
 
                         {/* ACTIONS */}
                         <div className="flex flex-col items-center gap-2 mt-4 shrink-0">
-                            <BTN label="SUBMIT" onClick={handleSubmit} />
+                            <BTN label={isSubmitting ? "SUBMITTING..." : "SUBMIT"} onClick={handleSubmit} />
                             <button
                                 type="button"
                                 onClick={() => setShowForm(false)}
-                                className="text-[#567a99] text-sm FONT_PN font-semibold underline hover:text-[#C59B4E] transition-colors"
+                                disabled={isSubmitting}
+                                className="text-[#567a99] text-sm FONT_PN font-semibold underline hover:text-[#C59B4E] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 Cancel
                             </button>

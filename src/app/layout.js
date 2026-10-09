@@ -9,7 +9,7 @@ export const experimental = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body suppressHydrationWarning>
         <SiteLayout>{children}</SiteLayout>
       </body>

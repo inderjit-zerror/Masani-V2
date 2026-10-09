@@ -2,10 +2,10 @@ const Border = () => {
     return (
         <div className="w-[96%] h-[94%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 
-            <img src="/images/BorderTL.svg" alt="BORDERIMG" className=" absolute  top-0 sm:top-3 left-2 w-[15%]" />
-            <img src="/images/BorderBL.svg" alt="BORDERIMG" className=" absolute left-3 bottom-0 sm:bottom-2 w-[15%]" />
-            <img src="/images/BorderTR.svg" alt="BORDERIMG" className=" absolute top-0 sm:top-3 right-2 w-[15%]" />
-            <img src="/images/BorderBR.svg" alt="BORDERIMG" className=" absolute right-3 bottom-0 sm:bottom-2 w-[15%]" />
+            <img src="/images/BorderTL.svg" alt="" role="presentation" className=" absolute  top-0 sm:top-3 left-2 w-[15%]" />
+            <img src="/images/BorderBL.svg" alt="" role="presentation" className=" absolute left-3 bottom-0 sm:bottom-2 w-[15%]" />
+            <img src="/images/BorderTR.svg" alt="" role="presentation" className=" absolute top-0 sm:top-3 right-2 w-[15%]" />
+            <img src="/images/BorderBR.svg" alt="" role="presentation" className=" absolute right-3 bottom-0 sm:bottom-2 w-[15%]" />
 
 
             {/* BOTTOM */}
