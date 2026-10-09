@@ -39,7 +39,7 @@ const Timer = () => {
     const TimerBlock = ({ value, label }) => (
         <div className="flex flex-col items-center">
             <span className="text-5xl md:text-5xl font-serif text-[#C29756]">{formatNumber(value)}</span>
-            <span className="text-xs md:text-[0.8rem] tracking-tight text-[#567a99] mt-2 uppercase font-medium">{label}</span>
+            <span className="text-xs md:text-[0.8rem]  text-[#567a99] mt-2 uppercase FONT_PN font-semibold">{label}</span>
         </div>
     );
 
